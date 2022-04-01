@@ -42,5 +42,8 @@ Route::get('/produk', function () {
 /* PRODUK */
 
 /* LAYANAN */
+Route::get('/layanan/jualtanah', function () {
+    return view('customer.layanan.jualtanah');
+});
 
 /* DASHBOARD TANAH */
