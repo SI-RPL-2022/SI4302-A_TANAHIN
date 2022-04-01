@@ -34,6 +34,9 @@ Route::get('/produk', function () {
 });
 
 /* layanan */
+Route::get('/layanan/buatsertif', function () {
+    return view('customer.layanan.buatsertif');
+});
 
 /* PROFIL */
 
