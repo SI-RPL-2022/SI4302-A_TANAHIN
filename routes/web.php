@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -34,8 +36,11 @@ Route::get('/produk', function () {
 });
 
 /* layanan */
+Route::get('/layanan/gantipemilik', [LayananController::class, 'bbnIndex']);
 
 /* PROFIL */
+// pengajuan
+Route::get('/profil/pengajuan', [RiwayatController::class, 'pengajuanIndex']);
 
 /* transaksi */
 
