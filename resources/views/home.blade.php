@@ -103,5 +103,84 @@ active
             </div>
          </section>
          <!-- end slider section -->
+
+      </div>
+
+      <!-- why section -->
+      <section class="why_section layout_padding">
+         <div class="container">
+            <div class="heading_container heading_center">
+               <h2>
+                  Kenapa Anda Perlu Memilih Kami?
+               </h2>
+            </div>
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="box ">
+                     <div class="img-box">
+
+                     </div>
+                     <div class="detail-box">
+                        <p align="center"><img src="{{ asset('Template/images/layanan_icon.png') }}" width="100px" alt=""></p>
+                        <h5>
+                           Persuratan
+                        </h5>
+                        <p>
+                           Anda bisa membuat sertifikat tanah,melakukan balik nama sertifikat.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="box ">
+                     <div class="img-box">
+
+                     </div>
+                     <div class="detail-box">
+                        <p align="center"><img src="{{ asset('Template/images/produk_icon.png') }}" width="100px" alt=""></p>
+                        <h5>
+                           E-Commerce
+                        </h5>
+                        <p>
+                           Tempat jual beli tanah yang diawasi OJK dan Badan Pertahanan Nasional.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="box ">
+                     <div class="img-box">
+
+                     </div>
+                     <div class="detail-box">
+                        <p align="center"><img src="{{ asset('Template/images/edu_icon.png') }}" width="100px" alt=""></p>
+                        <h5>
+                           Edukasi
+                        </h5>
+                        <p>
+                           Pembelajaran lengkap mengenai potensi beserta resiko Investasi Tanah.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                <div class="box ">
+                   <div class="img-box">
+                   </div>
+                   <div class="detail-box">
+                     <p align="center"><img src="{{ asset('Template/images/monitoring_icon.png') }}" width="100px" alt=""></p>
+                      <h5>
+                        Monitoring
+                      </h5>
+                      <p>
+                         Berisikan Dashboard harga rata-rata tanah beserta asset yang Anda miliki.
+                      </p>
+                   </div>
+                </div>
+             </div>
+            </div>
+         </div>
+      </section>
+      <!-- end why section -->
       
 @endsection
