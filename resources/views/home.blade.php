@@ -182,5 +182,38 @@ active
          </div>
       </section>
       <!-- end why section -->
+
+      <!-- product section -->
+      <section style="background: linear-gradient(to right, #84C038, #30A139, #157C1D);" class="product_section layout_padding">
+         <div class="container">
+            <div class="heading_container heading_center">
+               <h2 style="color:white">
+                  Tanah <span>Favorit</span>
+               </h2>
+            </div>
+            <div class="row">
+            @for ($i = 0; $i <6;)
+               <div class="col-sm-6 col-md-4 col-lg-4 mb-3">
+                  <div class="card" style="width: 22.5rem;">
+                     <img class="card-img-top" src="{{ asset('Template/images/tanah.jpg') }}" alt="Card image cap">
+                     <div class="card-body">
+                        <h3>Rp.25.000/m<sup>2</sup></h3>
+                       <h5 class="card-title">Jalan Haliman No 1</h5>
+                       <p class="card-text">Kota Palangkaraya,Kalimantan Tengah</p>
+                       <a href="/produk/detail" class="btn btn-success">Detail</a>
+                     </div>
+                   </div>
+               </div>
+            <?php $i++; ?>
+            @endfor
+            </div>
+            <div class="btn-box">
+               <a href="/produk">
+               Lihat Semua Tanah
+               </a>
+            </div>
+         </div>
+      </section>
+      <!-- end product section -->
       
 @endsection
