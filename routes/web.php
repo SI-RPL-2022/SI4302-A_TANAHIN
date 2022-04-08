@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LayananController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -34,6 +35,8 @@ Route::get('/produk', function () {
 });
 
 /* layanan */
+Route::get('/layanan/buatsertif', [LayananController::class, 'create_sertifikat']);
+Route::post('/layanan/buatsertif', [LayananController::class, 'store_sertifikat']);
 
 /* PROFIL */
 
