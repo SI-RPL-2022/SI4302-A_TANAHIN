@@ -9,7 +9,7 @@ active
 </div>
 
 <section>
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="/layanan/buatsertif" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container shadow p-3 mt-3 mb-5 bg-white roundedr">
             <br><br>
