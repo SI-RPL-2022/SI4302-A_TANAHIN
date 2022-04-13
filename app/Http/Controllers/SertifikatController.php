@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Layanan;
+use App\Models\Sertifikat;
 
-class LayananController extends Controller
+class SertifikatController extends Controller
 {
     public function create_sertifikat(){
         return view('customer.layanan.buatsertif');
@@ -15,13 +15,13 @@ class LayananController extends Controller
         $kode = 120;
         $kode = $kode.rand(11111,99999);
 
-        $sertif = new Layanan;
+        $sertif = new Sertifikat;
         $sertif->kode_transaksi = $kode;
         $sertif->luas_tanah = $request->luas;
         $sertif->alamat = $request->alamat;
         $sertif->harga = $request->harga;
         $sertif->deskripsi = $request->deskripsi;
-        $sertif->kategori = 'Pembuatan Sertifikat';
+        $sertif->kategori = '2';
         $sertif->foto = $request->file('uploadfototanah')->store('layanan/buatsertif');
         $sertif->user_id = auth()->user()->id;
         $sertif->save();

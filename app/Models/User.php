@@ -40,9 +40,9 @@ class User extends Authenticatable
 
 
 
-    public function layanan()
+    public function sertifikat()
     {
-        return $this->hasMany(Layanan::class);
+        return $this->hasMany(Sertifikat::class);
     }
 
     public function produk()
