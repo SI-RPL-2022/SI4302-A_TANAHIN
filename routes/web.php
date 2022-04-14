@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LayananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,8 +43,7 @@ Route::get('/produk', function () {
 /* PRODUK */
 
 /* LAYANAN */
-Route::get('/layanan/jualtanah', function () {
-    return view('customer.layanan.jualtanah');
-});
+Route::get('/layanan/jualtanah', [LayananController::class, 'create_tanah']);
+Route::post('/layanan/jualtanah/store', [LayananController::class, 'store_tanah']);
 
 /* DASHBOARD TANAH */
