@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\RiwayatPengajuanSertifikatController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 /* PRODUK */
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [ProductController::class, 'index']);
 
 /* TENTANG */
 Route::get('/produk', function () {
