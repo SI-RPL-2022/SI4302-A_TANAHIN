@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LayananController;
+use App\Http\Controllers\SertifikatController;
+use App\Http\Controllers\RiwayatPengajuanSertifikatController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -35,10 +36,12 @@ Route::get('/produk', function () {
 });
 
 /* layanan */
-Route::get('/layanan/buatsertif', [LayananController::class, 'create_sertifikat']);
-Route::post('/layanan/buatsertif', [LayananController::class, 'store_sertifikat']);
+Route::get('/layanan/buatsertif', [SertifikatController::class, 'create_sertifikat']);
+Route::post('/layanan/buatsertif', [SertifikatController::class, 'store_sertifikat']);
 
 /* PROFIL */
+Route::get('/profil/pengajuan', [RiwayatPengajuanSertifikatController::class, 'index']);
+Route::get('/profil/pengajuan/detail/{id}', [RiwayatPengajuanSertifikatController::class,'show']);
 
 /* transaksi */
 
