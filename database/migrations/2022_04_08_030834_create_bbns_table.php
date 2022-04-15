@@ -16,6 +16,8 @@ class CreateBbnsTable extends Migration
         Schema::create('bbns', function (Blueprint $table) {
             $table->id();
             $table->string('kode_transaki');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('luas_tanah');
             $table->string('alamat');
             $table->integer('harga');

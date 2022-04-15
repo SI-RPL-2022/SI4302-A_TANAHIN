@@ -16,7 +16,7 @@ class BBNSeeder extends Seeder
     {
         $bbn = [
             [
-                'luas' => '500',
+                'luas_tanah' => '500',
                 'alamat' => 'JL. Kentang',
                 'harga' => '750000000',
                 'pemilik_lama' => 'cahyo',
@@ -25,7 +25,7 @@ class BBNSeeder extends Seeder
                 'upload_foto_tanah' => 'foto_tanah(1).jpg',
             ],
             [
-                'luas' => '800',
+                'luas_tanah' => '800',
                 'alamat' => 'JL. Tomat',
                 'harga' => '950000000',
                 'pemilik_lama' => 'bima',
@@ -35,8 +35,7 @@ class BBNSeeder extends Seeder
             ],
         ];
 
-        foreach ($bbn as $key => $value)
-        {
+        foreach ($bbn as $key => $value) {
             BBN::create($value);
         }
     }

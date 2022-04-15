@@ -8,11 +8,10 @@ active
 <div class="heading_container heading_center">
     <h2 class="font-weight-bold text-center" style="color:#30A139;">Riwayat Pengajuan</h2>
 </div>
-
+@foreach ($bbn as $item)
 <div class="card m-5">
         <div class="card-header">
             <div class="row">
-              @foreach ($bbn as $item)
             <div class="col-3">
                 <button class="btn btn-success">Pengajuan Penjualan Tanah</button> 
             </div>
@@ -22,12 +21,10 @@ active
             <div class="col-2 mt-2">
                 <p style="color:orange">Sedang Diproses</p>
             </div>
-            @endforeach
         </div>
         </div>
         <div class="card-body">
-            <div class="row ">
-                @foreach ($bbn as $item)
+            <div class="row mb">
                 <div class="col-4">
                     <img src="{{asset('storage/'.$item->upload_foto_tanah.'')}}" width="350px" height="200px" alt="">
                 </div>
@@ -52,9 +49,9 @@ active
                         </form>
                     </div>
                 </div>
-                @endforeach
             </div>
         </div>
-    </div>
+</div>
+@endforeach
 
 @endsection

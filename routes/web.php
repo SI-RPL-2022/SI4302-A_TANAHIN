@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
 use App\Http\Controllers\BBNController;
-
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\RiwayatPengajuanSertifikatController;
 use App\Http\Controllers\RiwayatController;
@@ -49,7 +47,6 @@ Route::post('/layanan/buatsertif', [SertifikatController::class, 'store_sertifik
 Route::get('/profil/pengajuan', [RiwayatPengajuanSertifikatController::class, 'index']);
 Route::get('/profil/pengajuan/detail/{id}', [RiwayatPengajuanSertifikatController::class, 'show']);
 
-Route::get('/layanan/gantipemilik', [LayananController::class, 'bbnIndex']);
 
 
 /* PROFIL */
