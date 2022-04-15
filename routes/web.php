@@ -53,5 +53,8 @@ Route::get('/profil/pengajuan', [RiwayatController::class, 'pengajuanIndex']);
 /* PRODUK */
 
 /* LAYANAN */
+Route::get('/layanan/jualtanah', function () {
+    return view('customer.layanan.jualtanah');
+});
 
 /* DASHBOARD TANAH */
