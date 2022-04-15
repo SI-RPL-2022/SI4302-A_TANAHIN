@@ -26,22 +26,22 @@ active
                 <input type="number" name="harga" class="form-control form-control-lg" id="harga">
             </div>
             <div class="form-group">
-                <label for="pemiliklama"><b>Pemilik Lama</b></label>
-                <input type="text" name="pemiliklama" class="form-control form-control-lg" id="pemiliklama">
+                <label for="pemilik_lama"><b>Pemilik Lama</b></label>
+                <input type="text" name="pemilik_lama" class="form-control form-control-lg" id="pemiliklama">
             </div>
             <div class="form-group">
-                <label for="pemilikbaru"><b>Pemilik Baru</b></label>
-                <input type="text" name="pemilikbaru" class="form-control form-control-lg" id="pemilikbaru">
+                <label for="pemilik_baru"><b>Pemilik Baru</b></label>
+                <input type="text" name="pemilik_baru" class="form-control form-control-lg" id="pemilikbaru">
             </div>
 
             <div class="form-group">
-                <label for="uploadsertifikat"><b>Upload Sertifikat</b></label>
-                <input type="file" id="uploadsertifikat" name="uploadsertifikat" accept=".pdf,.doc"/>
+                <label for="upload_sertifikat"><b>Upload Sertifikat</b></label>
+                <input type="file" id="upload_sertifikat" name="upload_sertifikat" accept=".pdf,.doc"/>
             </div>
             
             <div class="form-group">
-                <label for="uploadfototanah"><b>Upload Foto Tanah</b></label>
-                <input type="file" id="uploadfototanah" name="uploadfototanah" accept=".jpg,.png"/>
+                <label for="upload_foto_tanah"><b>Upload Foto Tanah</b></label>
+                <input type="file" id="upload_fototanah" name="upload_foto_tanah" accept=".jpg,.png"/>
             </div>
 
             <br>
