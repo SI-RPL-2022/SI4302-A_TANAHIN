@@ -2,9 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\BBNController;
+
+use App\Http\Controllers\SertifikatController;
+use App\Http\Controllers\RiwayatPengajuanSertifikatController;
+use App\Http\Controllers\LayananController;
+
 use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +24,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 /* PRODUK */
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [ProductController::class, 'index']);
 
 /* TENTANG */
 Route::get('/produk', function () {
@@ -36,18 +37,34 @@ Route::get('/produk', function () {
 });
 
 /* layanan */
+
 Route::get('/layanan/gantipemilik', [BBNController::class, 'bbnIndex']);
 Route::post('/layanan/gantipemilik/store', [BBNController::class, 'store_bbn']);
+
+
+Route::get('/layanan/buatsertif', [SertifikatController::class, 'create_sertifikat']);
+Route::post('/layanan/buatsertif', [SertifikatController::class, 'store_sertifikat']);
+
+/* PROFIL */
+Route::get('/profil/pengajuan', [RiwayatPengajuanSertifikatController::class, 'index']);
+Route::get('/profil/pengajuan/detail/{id}', [RiwayatPengajuanSertifikatController::class, 'show']);
+
+Route::get('/layanan/gantipemilik', [LayananController::class, 'bbnIndex']);
+
 
 /* PROFIL */
 // pengajuan
 Route::get('/profil/pengajuan', [RiwayatController::class, 'pengajuanIndex']);
 Route::post('/profil/pengajuan/delete', [RiwayatController::class, 'delete'])->name('pengajuan.delete');
 
+
 /* transaksi */
 
 /* PRODUK */
 
 /* LAYANAN */
+Route::get('/layanan/jualtanah', function () {
+    return view('customer.layanan.jualtanah');
+});
 
 /* DASHBOARD TANAH */
