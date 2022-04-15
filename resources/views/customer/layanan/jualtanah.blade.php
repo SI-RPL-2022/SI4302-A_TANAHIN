@@ -8,7 +8,7 @@ active
 </div>
 
 <section>
-    <form method="POST" enctype="multipart/form-data">
+        <form action="/layanan/jualtanah/store" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container shadow p-3 mt-3 mb-5 bg-white rounded">
             <br><br>

@@ -10,10 +10,13 @@ class Layanan extends Model
     use HasFactory;
 
     protected $table = 'layanans';
+
     protected $guarded = [];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
+}
 }

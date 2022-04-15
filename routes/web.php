@@ -11,7 +11,11 @@ use App\Http\Controllers\LayananController;
 
 use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\LayananController;
+
 use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -63,8 +67,7 @@ Route::post('/profil/pengajuan/delete', [RiwayatController::class, 'delete'])->n
 /* PRODUK */
 
 /* LAYANAN */
-Route::get('/layanan/jualtanah', function () {
-    return view('customer.layanan.jualtanah');
-});
+Route::get('/layanan/jualtanah', [LayananController::class, 'create_tanah']);
+Route::post('/layanan/jualtanah/store', [LayananController::class, 'store_tanah']);
 
 /* DASHBOARD TANAH */
