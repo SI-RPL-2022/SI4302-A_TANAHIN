@@ -10,7 +10,6 @@ class BBN extends Model
     use HasFactory;
 
     protected $table = 'bbns';
-    protected $fillable = ["id", "luas_tanah", "alamat", "harga", "pemilik_lama", "Pemilik_baru", "kategori", "upload_sertifikat", "upload_foto_tanah", "created_at"];
     protected $guarded = [];
 
     public function bbn()

@@ -31,12 +31,12 @@ active
 
             <div class="form-group">
                 <label for="uploadsertifikat"><b>Upload Sertifikat</b></label>
-                <input type="file" id="uploadsertifikat" name="uploadsertifikat" accept=".pdf,.doc"/>
+                <input type="file" id="uploadsertifikat" name="uploadsertifikat" accept="jpeg,png,jpg,svg"/>
             </div>
             
             <div class="form-group">
                 <label for="uploadfototanah"><b>Upload Foto Tanah</b></label>
-                <input type="file" id="uploadfototanah" name="uploadfototanah" accept=".jpg,.png"/>
+                <input type="file" id="uploadfototanah" name="uploadfototanah" accept="jpeg,png,jpg,svg"/>
             </div>
 
 

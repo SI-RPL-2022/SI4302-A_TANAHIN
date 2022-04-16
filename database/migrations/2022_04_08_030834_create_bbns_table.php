@@ -15,7 +15,6 @@ class CreateBbnsTable extends Migration
     {
         Schema::create('bbns', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_transaki');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('luas_tanah');
@@ -25,6 +24,9 @@ class CreateBbnsTable extends Migration
             $table->string('pemilik_baru');
             $table->string('upload_sertifikat');
             $table->string('upload_foto_tanah');
+            $table->integer('status')->default(1);
+            $table->text('moservicer')->nullable();
+            $table->text('relander')->nullable();
             $table->timestamps();
         });
     }

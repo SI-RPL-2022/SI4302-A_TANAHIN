@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Layanan;
 use App\Models\BBN;
-use App\Models\ProsesLayanan;
 
 class BBNController extends Controller
 {
@@ -17,28 +15,34 @@ class BBNController extends Controller
 
     public function admin()
     {
-        $layanan = Layanan::all();
-        $jual_tanah = Layanan::where('kategori', '=', 'Pengajuan Penjualan Tanah')->count();
-        $sertifikat = Layanan::where('kategori', '=', 'Pembuatan Sertifikat')->count();
-        $bbn_tanah = Layanan::where('kategori', '=', 'Pengajuan BBN Tanah')->count();
-        return view('admin.layanan.layanan', compact('layanan', 'jual_tanah', 'sertifikat', 'bbn_tanah'));
+        return view('admin.layanan.layanan');
     }
 
     public function store_bbn(Request $request)
     {
-        $kode = 120;
-        $kode = $kode . rand(11111, 99999);
-        $bbn = new BBN;
-        $bbn->kode_transaki = $kode;
-        $bbn->luas_tanah = $request->luas;
-        $bbn->alamat = $request->alamat;
-        $bbn->harga = $request->harga;
-        $bbn->pemilik_lama = $request->pemilik_lama;
-        $bbn->pemilik_baru = $request->pemilik_baru;
-        $bbn->upload_sertifikat = $request->file('upload_sertifikat')->store('layanan/jualtanah/sertifikat');
-        $bbn->upload_foto_tanah = $request->file('upload_foto_tanah')->store('layanan/buatsertif');
-        $bbn->user_id = auth()->user()->id;
-        $bbn->save();
+        $request->validate([
+            'upload_foto_tanah' =>  'required|image|mimes:jpeg,png,jpg,svg',
+        ]);
+        $uploadfototanahName = time() . '.' . $request->upload_foto_tanah->extension();
+        $request->upload_foto_tanah->move(public_path('/Template/images/bbntanah'), $uploadfototanahName);
+
+        $request->validate([
+            'upload_sertifikat' => 'required|image|mimes:jpeg,png,jpg,svg',
+        ]);
+        $uploadsertifikatName = time() . '.' . $request->upload_sertifikat->extension();
+        $request->upload_sertifikat->move(public_path('/Template/images/bbntanah'), $uploadsertifikatName);
+
+        $BBN = BBN::create([
+            'luas_tanah' => $request['luas'],
+            'alamat' => $request['alamat'],
+            'harga' => $request['harga'],
+            'pemilik_lama' => $request['pemilik_lama'],
+            'pemilik_baru' => $request['pemilik_baru'],
+            'upload_sertifikat' => $uploadsertifikatName,
+            'upload_foto_tanah' => $uploadfototanahName,
+            'user_id' => auth()->user()->id,
+            'status' => 0,
+        ]);
         return redirect('/profil/pengajuan');
     }
 }

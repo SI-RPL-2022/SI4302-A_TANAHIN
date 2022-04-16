@@ -32,7 +32,7 @@ active
 
             <div class="form-group">
                 <label for="uploadfototanah"><b>Upload Foto Tanah</b></label>
-                <input type="file" id="uploadfototanah" name="uploadfototanah" accept=".jpg,.png"/>
+                <input type="file" id="uploadfototanah" name="uploadfototanah" accept="jpeg,png,jpg,svg"/>
             </div>
             <br>
             <button style="background-color:#F7CF4C; width:100%; height:50px; border-radius:25px;" class="btn" type="submit"><b>Submit</b></button>

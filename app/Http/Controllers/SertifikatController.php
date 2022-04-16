@@ -7,25 +7,28 @@ use App\Models\Sertifikat;
 
 class SertifikatController extends Controller
 {
-    public function create_sertifikat(){
+    public function create_sertifikat()
+    {
         return view('customer.layanan.buatsertif');
     }
 
-    public function store_sertifikat(Request $request){
-        $kode = 120;
-        $kode = $kode.rand(11111,99999);
+    public function store_sertifikat(Request $request)
+    {
+        $request->validate([
+            'uploadfototanah' => 'required|image|mimes:jpeg,png,jpg,svg',
+        ]);
+        $uploadfototanahName = time() . '.' . $request->uploadfototanah->extension();
+        $request->uploadfototanah->move(public_path('/Template/images/sertifikat'), $uploadfototanahName);
 
-        $sertif = new Sertifikat;
-        $sertif->kode_transaksi = $kode;
-        $sertif->luas_tanah = $request->luas;
-        $sertif->alamat = $request->alamat;
-        $sertif->harga = $request->harga;
-        $sertif->deskripsi = $request->deskripsi;
-        $sertif->kategori = '2';
-        $sertif->foto = $request->file('uploadfototanah')->store('layanan/buatsertif');
-        $sertif->user_id = auth()->user()->id;
-        $sertif->save();
-
+        $sertifikat = Sertifikat::create([
+            'luas_tanah' => $request['luas'],
+            'alamat' => $request['alamat'],
+            'harga' => $request['harga'],
+            'deskripsi' => $request['deskripsi'],
+            'foto' => $uploadfototanahName,
+            'user_id' => auth()->user()->id,
+            'status' => 0,
+        ]);
         return redirect('/layanan/buatsertif');
     }
 }

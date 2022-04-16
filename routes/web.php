@@ -7,7 +7,7 @@ use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\RiwayatPengajuanSertifikatController;
 use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\LayananController;
+use App\Http\Controllers\JualtanahController;
 use App\Http\Controllers\ProductController;
 
 
@@ -51,16 +51,19 @@ Route::get('/profil/pengajuan/detail/{id}', [RiwayatPengajuanSertifikatControlle
 
 /* PROFIL */
 // pengajuan
-Route::get('/profil/pengajuan', [RiwayatController::class, 'pengajuanIndex']);
-Route::post('/profil/pengajuan/delete', [RiwayatController::class, 'delete'])->name('pengajuan.delete');
-
+Route::get('/profil/pengajuan/bbn/{id}', [RiwayatController::class, 'pengajuanIndex1'])->name('pengajuan.index.bbn');
+Route::post('/profil/pengajuan/bbn/delete', [RiwayatController::class, 'delete1'])->name('pengajuan.delete.bbn');
+Route::get('/profil/pengajuan/jualtanah/{id}', [RiwayatController::class, 'pengajuanIndex2'])->name('pengajuan.index.jualtanah');
+Route::post('/profil/pengajuan/jualtanah/delete', [RiwayatController::class, 'delete2'])->name('pengajuan.delete.jualtanah');
+Route::get('/profil/pengajuan/sertifikat/{id}', [RiwayatController::class, 'pengajuanIndex3'])->name('pengajuan.index.sertifikat');
+Route::post('/profil/pengajuan/sertifikat/delete', [RiwayatController::class, 'delete3'])->name('pengajuan.delete.sertifikat');
 
 /* transaksi */
 
 /* PRODUK */
 
 /* LAYANAN */
-Route::get('/layanan/jualtanah', [LayananController::class, 'create_tanah']);
-Route::post('/layanan/jualtanah/store', [LayananController::class, 'store_tanah']);
+Route::get('/layanan/jualtanah', [JualtanahController::class, 'create_tanah']);
+Route::post('/layanan/jualtanah/store', [JualtanahController::class, 'store_tanah']);
 
 /* DASHBOARD TANAH */

@@ -16,14 +16,14 @@ class CreateSertifikatsTable extends Migration
         Schema::create('sertifikats', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->integer('kode_transaksi')->unique();
             $table->integer('luas_tanah');
             $table->text('alamat');
             $table->integer('harga');
-            $table->text('deskripsi')->nullable($value = true);
-            $table->text('kategori');
-            $table->text('foto')->nullable($value = true);
+            $table->text('deskripsi');
+            $table->text('foto');
             $table->integer('status')->default(1);
+            $table->text('moservicer')->nullable();
+            $table->text('relander')->nullable();
             $table->timestamps();
         });
     }

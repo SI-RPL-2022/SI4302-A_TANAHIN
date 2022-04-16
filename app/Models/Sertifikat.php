@@ -10,7 +10,7 @@ class Sertifikat extends Model
     use HasFactory;
 
     protected $table = 'sertifikats';
-
+    protected $guarded = [];
     public function user()
     {
         return $this->belongsTo(User::class);

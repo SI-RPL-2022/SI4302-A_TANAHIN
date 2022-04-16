@@ -12,7 +12,16 @@
           <li class="nav-item @yield('produk')">
              <a class="nav-link" href="/produk">E-Commerce</a>
           </li>
-
+          @guest
+          <li class="nav-item @yield('layanan') dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Administrasi <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+               <li><a style="text-decoration:none;" href="{{ route('login') }}"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;Jual Tanah</a></li>
+               <li><a style="text-decoration:none;" href="{{ route('login') }}"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;Buat Sertifikat</a></li>
+               <li><a style="text-decoration:none;"href="{{ route('login') }}"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;BBN Tanah</a></li>
+            </ul>
+         </li>
+          @else
           <li class="nav-item @yield('layanan') dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Administrasi <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -21,6 +30,7 @@
                <li><a style="text-decoration:none;"href="/layanan/gantipemilik"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;BBN Tanah</a></li>
             </ul>
          </li>
+         @endguest
 
           <li class="nav-item  @yield('tentang') dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Tentang <span class="caret"></span></a>
@@ -50,7 +60,7 @@
                <li><a style="text-decoration:none;" href="/profil"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profil Pengguna</a></li>
                <li><a style="text-decoration:none;" href="/profil/dashboard"><i class="fa fa-line-chart" aria-hidden="true"></i>&nbsp;Dashboard Tanah</a></li>
                <li><a style="text-decoration:none;" href="/profil/riwayat"><i class="fa fa-exchange" aria-hidden="true"></i>&nbsp;Transaksi</a></li>
-               <li><a style="text-decoration:none;" href="/profil/pengajuan"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;Pengajuan</a></li>
+               <li><a style="text-decoration:none;" href="/profil/pengajuan/jualtanah/{{ Auth::user()->id }}"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;Pengajuan</a></li>
                
                <li>
                <a href="{{ route('logout') }}"

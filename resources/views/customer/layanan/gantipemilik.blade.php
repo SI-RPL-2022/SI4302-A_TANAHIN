@@ -36,12 +36,12 @@ active
 
             <div class="form-group">
                 <label for="upload_sertifikat"><b>Upload Sertifikat</b></label>
-                <input type="file" id="upload_sertifikat" name="upload_sertifikat" accept=".pdf,.doc"/>
+                <input type="file" id="upload_sertifikat" name="upload_sertifikat" accept="jpeg,png,jpg,svg"/>
             </div>
             
             <div class="form-group">
                 <label for="upload_foto_tanah"><b>Upload Foto Tanah</b></label>
-                <input type="file" id="upload_fototanah" name="upload_foto_tanah" accept=".jpg,.png"/>
+                <input type="file" id="upload_fototanah" name="upload_foto_tanah" accept="jpeg,png,jpg,svg"/>
             </div>
 
             <br>
