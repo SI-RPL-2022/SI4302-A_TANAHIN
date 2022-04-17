@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\BBN;
 use App\Models\Jualtanah;
 use App\Models\Sertifikat;
+use App\Models\Product;
 
 
 class RiwayatController extends Controller
@@ -23,7 +24,15 @@ class RiwayatController extends Controller
     {
         $BBN = BBN::find($x->id);
         $BBN->delete();
-        return redirect('/profil/pengajuan/bbn')->with('success', 'Pengajuan telah dibatalkan.');
+        $info = "Berhasil";
+        $product = Product::all();
+        return view('home', compact('info', 'product'));
+    }
+
+    public function detail1(Request $x)
+    {
+        $BBN = BBN::find($x->id);
+        return view('customer.profil.pengajuan_detail1')->with("BBN", $BBN);
     }
 
     public function pengajuanIndex2($id)
@@ -37,7 +46,15 @@ class RiwayatController extends Controller
     {
         $Jualtanah = Jualtanah::find($x->id);
         $Jualtanah->delete();
-        return redirect('/profil/pengajuan/jualtanah')->with('success', 'Pengajuan telah dibatalkan.');
+        $info2 = "Berhasil";
+        $product = Product::all();
+        return view('home', compact('info2', 'product'));
+    }
+
+    public function detail2(Request $x)
+    {
+        $Jualtanah = Jualtanah::find($x->id);
+        return view('customer.profil.pengajuan_detail2')->with("Jualtanah", $Jualtanah);
     }
 
     public function pengajuanIndex3($id)
@@ -51,6 +68,14 @@ class RiwayatController extends Controller
     {
         $Sertifikat = Sertifikat::find($x->id);
         $Sertifikat->delete();
-        return redirect('/profil/pengajuan/sertifikat')->with('success', 'Pengajuan telah dibatalkan.');
+        $info3 = "Berhasil";
+        $product = Product::all();
+        return view('home', compact('info3', 'product'));
+    }
+
+    public function detail3(Request $x)
+    {
+        $Sertifikat = Sertifikat::find($x->id);
+        return view('customer.profil.pengajuan_detail3')->with("Sertifikat", $Sertifikat);
     }
 }

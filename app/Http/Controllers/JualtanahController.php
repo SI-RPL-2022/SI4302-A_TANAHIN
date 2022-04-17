@@ -16,16 +16,12 @@ class JualtanahController extends Controller
     {
         $request->validate([
             'uploadfototanah' =>  'required|image|mimes:jpeg,png,jpg,svg',
+            'uploadsertifikat' => 'required|image|mimes:jpeg,png,jpg,svg',
         ]);
         $uploadfototanahName = time() . '.' . $request->uploadfototanah->extension();
         $request->uploadfototanah->move(public_path('/Template/images/jualtanah'), $uploadfototanahName);
-
-        $request->validate([
-            'uploadsertifikat' => 'required|image|mimes:jpeg,png,jpg,svg',
-        ]);
         $uploadsertifikatName = time() . '.' . $request->uploadsertifikat->extension();
         $request->uploadsertifikat->move(public_path('/Template/images/jualtanah'), $uploadsertifikatName);
-
         $jualtanah = Jualtanah::create([
             'luas_tanah' => $request['luas'],
             'alamat' => $request['alamat'],
@@ -36,6 +32,12 @@ class JualtanahController extends Controller
             'user_id' => auth()->user()->id,
             'status' => 0,
         ]);
-        return redirect('/layanan/jualtanah');
+        if (isset($jualtanah)) {
+            $info = "Berhasil";
+        } else {
+            $info = "Gagal";
+        }
+
+        return view('customer.layanan.jualtanah', compact('info'));
     }
 }

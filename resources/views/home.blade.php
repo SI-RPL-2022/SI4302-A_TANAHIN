@@ -3,7 +3,27 @@
 active
 @endsection
 @section('content')
-
+@if (isset($info))
+<div class="container-fluid">
+    <div class="alert alert-warning" role="alert">
+        Berhasil membatalkan pengajuan BBN Tanah
+    </div>
+</div>
+@endif
+@if (isset($info2))
+<div class="container-fluid">
+    <div class="alert alert-warning" role="alert">
+        Berhasil membatalkan pengajuan Jual Tanah
+    </div>
+</div>
+@endif
+@if (isset($info3))
+<div class="container-fluid">
+    <div class="alert alert-warning" role="alert">
+        Berhasil membatalkan pengajuan Sertifikat Tanah
+    </div>
+</div>
+@endif
 <!-- end header section -->
 
          <!-- slider section -->

@@ -7,6 +7,20 @@ active
     <h2 class="font-weight-bold text-center" style="color:#30A139;">Form Penjualan Tanah</h2>
 </div>
 
+@if (isset($info))
+<div class="container mt-3 mb-3">
+    @if ($info=="Berhasil")
+    <div class="alert alert-success" role="alert">
+        Berhasil melakukan pengajuan Jual Tanah
+    </div>
+    @elseif ($info=="Gagal")
+    <div class="alert alert-danger" role="alert">
+        Gagal melakukan pengajuan Jual Tanah
+    </div>
+    @endif
+</div>
+@endif
+
 <section>
         <form action="/layanan/jualtanah/store" method="POST" enctype="multipart/form-data">
         @csrf

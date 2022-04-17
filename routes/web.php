@@ -44,10 +44,6 @@ Route::get('/layanan/buatsertif', [SertifikatController::class, 'create_sertifik
 Route::post('/layanan/buatsertif', [SertifikatController::class, 'store_sertifikat']);
 
 /* PROFIL */
-Route::get('/profil/pengajuan', [RiwayatPengajuanSertifikatController::class, 'index']);
-Route::get('/profil/pengajuan/detail/{id}', [RiwayatPengajuanSertifikatController::class, 'show']);
-
-
 
 /* PROFIL */
 // pengajuan
@@ -57,7 +53,9 @@ Route::get('/profil/pengajuan/jualtanah/{id}', [RiwayatController::class, 'penga
 Route::post('/profil/pengajuan/jualtanah/delete', [RiwayatController::class, 'delete2'])->name('pengajuan.delete.jualtanah');
 Route::get('/profil/pengajuan/sertifikat/{id}', [RiwayatController::class, 'pengajuanIndex3'])->name('pengajuan.index.sertifikat');
 Route::post('/profil/pengajuan/sertifikat/delete', [RiwayatController::class, 'delete3'])->name('pengajuan.delete.sertifikat');
-
+Route::get('/profil/pengajuan/bbn/detail/{id}', [RiwayatController::class, 'detail1'])->name('pengajuan.detail.bbn');
+Route::get('/profil/pengajuan/jualtanah/detail/{id}', [RiwayatController::class, 'detail2'])->name('pengajuan.detail.jualtanah');
+Route::get('/profil/pengajuan/sertifikat/detail/{id}', [RiwayatController::class, 'detail3'])->name('pengajuan.detail.sertifikat');
 /* transaksi */
 
 /* PRODUK */

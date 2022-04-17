@@ -45,9 +45,9 @@ active
                     <br>
                     <br>
                     <div class="d-grid gap-2 d-md-block">
-                        <form action="{{route('pengajuan.delete.jualtanah')}}" method="post">
+                        <form action="{{route('pengajuan.delete.sertifikat')}}" method="post">
                             @csrf
-                            <a href="/profil/pengajuan/detail" class="btn btn-success" type="button">Detail</a>
+                            <a href="{{route('pengajuan.detail.sertifikat',[$item->id])}}" class="btn btn-success" type="button">Detail</a>
                             <a href="https://wa.me/082216136564" class="btn btn-warning" type="button">Chat</a>
                             <input type="hidden" name="id" value="{{$item->id}}">
                             <button class="btn btn-danger" type="submit" name="pengajuan.delete">Batalkan</button>

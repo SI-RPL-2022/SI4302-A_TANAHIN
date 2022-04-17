@@ -22,15 +22,12 @@ class BBNController extends Controller
     {
         $request->validate([
             'upload_foto_tanah' =>  'required|image|mimes:jpeg,png,jpg,svg',
-        ]);
-        $uploadfototanahName = time() . '.' . $request->upload_foto_tanah->extension();
-        $request->upload_foto_tanah->move(public_path('/Template/images/bbntanah'), $uploadfototanahName);
-
-        $request->validate([
             'upload_sertifikat' => 'required|image|mimes:jpeg,png,jpg,svg',
         ]);
-        $uploadsertifikatName = time() . '.' . $request->upload_sertifikat->extension();
-        $request->upload_sertifikat->move(public_path('/Template/images/bbntanah'), $uploadsertifikatName);
+        $foto_tanah = time() . '.' . $request->upload_foto_tanah->extension();
+        $request->upload_foto_tanah->move(public_path('/Template/images/bbntanah'), $foto_tanah);
+        $sertifikat = time() . '.' . $request->upload_sertifikat->extension();
+        $request->upload_sertifikat->move(public_path('/Template/images/bbntanah'), $sertifikat);
 
         $BBN = BBN::create([
             'luas_tanah' => $request['luas'],
@@ -38,11 +35,17 @@ class BBNController extends Controller
             'harga' => $request['harga'],
             'pemilik_lama' => $request['pemilik_lama'],
             'pemilik_baru' => $request['pemilik_baru'],
-            'upload_sertifikat' => $uploadsertifikatName,
-            'upload_foto_tanah' => $uploadfototanahName,
+            'upload_foto_tanah' => $foto_tanah,
+            'upload_sertifikat' => $sertifikat,
             'user_id' => auth()->user()->id,
             'status' => 0,
         ]);
-        return redirect('/profil/pengajuan');
+        if (isset($BBN)) {
+            $info = "Berhasil";
+        } else {
+            $info = "Gagal";
+        }
+
+        return view('customer.layanan.gantipemilik', compact('info'));
     }
 }

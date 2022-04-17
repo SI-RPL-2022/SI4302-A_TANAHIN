@@ -29,6 +29,12 @@ class SertifikatController extends Controller
             'user_id' => auth()->user()->id,
             'status' => 0,
         ]);
-        return redirect('/layanan/buatsertif');
+        if (isset($sertifikat)) {
+            $info = "Berhasil";
+        } else {
+            $info = "Gagal";
+        }
+
+        return view('customer.layanan.buatsertif', compact('info'));
     }
 }
