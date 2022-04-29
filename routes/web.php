@@ -63,5 +63,6 @@ Route::get('/profil/pengajuan/sertifikat/detail/{id}', [RiwayatController::class
 /* LAYANAN */
 Route::get('/layanan/jualtanah', [JualtanahController::class, 'create_tanah']);
 Route::post('/layanan/jualtanah/store', [JualtanahController::class, 'store_tanah']);
+Route::get('/admin/layanan/jualtanah/{id}', [JualtanahController::class, 'edit_tanah']);
 
 /* DASHBOARD TANAH */

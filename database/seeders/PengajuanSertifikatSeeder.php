@@ -17,7 +17,6 @@ class PengajuanSertifikatSeeder extends Seeder
         $user = [
             [
                 'user_id' => '1',
-                'kode_transaksi' => '12080921',
                 'luas_tanah' => '200',
                 'alamat' => 'Bandung',
                 'harga' => '700000',
@@ -28,7 +27,6 @@ class PengajuanSertifikatSeeder extends Seeder
             ],
             [
                 'user_id' => '2',
-                'kode_transaksi' => '12047627',
                 'luas_tanah' => '225',
                 'alamat' => 'Pasanggrahan',
                 'harga' => '1000000',
@@ -39,7 +37,6 @@ class PengajuanSertifikatSeeder extends Seeder
             ],
             [
                 'user_id' => '3',
-                'kode_transaksi' => '12089424',
                 'luas_tanah' => '370',
                 'alamat' => 'Bogor',
                 'harga' => '950000',
