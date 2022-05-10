@@ -31,9 +31,11 @@ Route::get('/', [ProductController::class, 'index']);
 
 /* TENTANG */
 Route::get('/produk', function () {
-    return view('customer.produk');
+    return view('customer.e-commerce.produk');
 });
-
+Route::get('/produk/detail', function () {
+    return view('customer.e-commerce.detail');
+});
 /* layanan */
 
 Route::get('/layanan/gantipemilik', [BBNController::class, 'bbnIndex']);
