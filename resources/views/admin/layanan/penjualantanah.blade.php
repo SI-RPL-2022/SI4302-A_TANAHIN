@@ -30,10 +30,6 @@ active
                     <hr>
                     <div class="row">
                         <div class="d-flex justify-content-start">
-                            <p class="col-md-4">ID Transaksi </p>
-                            <p class="ms-3 col-md-8"><b>{{$layanan->kode_transaksi}}</b></p>
-                        </div>
-                        <div class="d-flex justify-content-start">
                             <p class="col-md-4">Tanggal Pengajuan</p>
                             <p class="ms-3 col-md-8"><b>{{ \Carbon\Carbon::parse($layanan->created_at)->format('D, j F Y') }}</b></p>
                         </div>
@@ -160,6 +156,32 @@ active
                                     <a href="#" class="btn btn-success ms-3" style="color:white">Email</a>
                                     <a href="#" class="btn btn-warning ms-3" style="color:white">Chat</a>
                                 </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-stats">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 style="color:#30A139">Photo Evidence</h4>
+                    </div>
+                    <hr>
+                    <div class="row mb-3">
+                        <div class="col-4">
+                            <p class="ms-3">Update Photo Evidence &nbsp;&nbsp;</p>
+                        </div>
+                        <div class="col-8">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="uploadfotoevidence" name="uploadfotoevidence">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ asset('/Template/images/jualtanah/'.$layanan->foto_evidence) }}" class="d-block w-100" alt="photo evidence belum ditambahkan..">
+                                </div>
                             </div>
                         </div>
                     </div>

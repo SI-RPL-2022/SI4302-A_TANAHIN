@@ -26,6 +26,8 @@ class CreateJualtanahsTable extends Migration
             $table->integer('status')->default(1);
             $table->text('moservicer')->nullable();
             $table->text('relander')->nullable();
+            $table->text('maps')->nullable();
+            $table->text('foto_evidence')->nullable();
             $table->timestamps();
         });
     }
@@ -37,6 +39,6 @@ class CreateJualtanahsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layanans');
+        Schema::dropIfExists('jualtanahs');
     }
 }
