@@ -40,9 +40,14 @@ active
                         <br><br> 
                             <div class="title">
                                 <ul class="categiri">
-                                    <li class="active"><a href="/produk">All</a></li>
-                                    <li class=""><a href="{{ Route('ecommerce-filter', ['cocok' => 'pribadi']) }}">Pribadi</a></li>
+                                    <li class=""><a href="/produk">All</a></li>
+                                    @if ($cocok=='pribadi')
+                                    <li class="active"><a href="{{ Route('ecommerce-filter', ['cocok' => 'pribadi']) }}">Pribadi</a></li>
                                     <li class=""><a href="{{ Route('ecommerce-filter', ['cocok' => 'bisnis']) }}">Bisnis</a></li>
+                                    @elseif ($cocok=='bisnis')
+                                    <li class=""><a href="{{ Route('ecommerce-filter', ['cocok' => 'pribadi']) }}">Pribadi</a></li>
+                                    <li class="active"><a href="{{ Route('ecommerce-filter', ['cocok' => 'bisnis']) }}">Bisnis</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -99,13 +104,9 @@ active
      @endforeach
         
     </div>
+    
         
-        
-    <div class="paginate-container mb-2">
-        <div class="pagination justify-content-center mt-4">
-            {{$product -> links()}}
-        </div>
-    </div>
+
     <br><br><br><br>
     
 </div>

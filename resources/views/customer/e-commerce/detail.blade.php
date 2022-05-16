@@ -11,7 +11,7 @@ active
             <h2 style="color:#30A139;">
                 Detail Tanah
             </h2>
-            <p>Jalan Jalan</p>
+            <p>{{$produk->alamat}},{{ $produk->kota }},{{ $produk->provinsi }}</p>
         </div>
 </section>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -22,13 +22,13 @@ active
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{ asset('Template/images/land.jpg') }}" height="800" class="d-block w-100" alt="...">
+        <img src="{{ asset('Template/images/'.$produk->foto1) }}" height="800" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('Template/images/land.jpg') }}" height="800" class="d-block w-100" alt="...">
+        <img src="{{ asset('Template/images/'.$produk->foto2) }}" height="800" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('Template/images/land.jpg') }}" height="800" class="d-block w-100" alt="...">
+        <img src="{{ asset('Template/images/'.$produk->foto3) }}" height="800" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -44,31 +44,31 @@ active
   <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-12">
-            <h1 style="color:#30A139"> <b>Harga : Rp 500000/m<sup>2</sup></b> </h1>
+            <h1 style="color:#30A139"> <b>Harga : Rp {{number_format($produk->harga)}}/m<sup>2</sup></b> </h1>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
             <h2>Deskripsi Tanah</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut nulla doloremque odit tempora. Inventore aliquid alias vero. Sapiente, dolore repellat eum cumque quae esse quibusdam dignissimos fugit officia maxime possimus!</p>
+            <p>{{$produk->deskripsi}}.</p>
         </div>
     </div>
     <div class="row">
         <div class="col-6">
             <h3>Spesifikasi Tanah</h3>
-            <p>Luas Tanah : 1300 m<sup>2</sup></p>
-            <p>Pemilik : Bima</p>
+            <p>Luas Tanah : {{$produk->luas}} m<sup>2</sup></p>
+            <p>Pemilik : {{$produk->user_id}}</p>
             
         </div>
         <div class="col-6">
             <h3>Cocok Untuk</h3>
-            <p>Bisnis</p>
+            <p>{{$produk->cocok}}</p>
         </div>
     </div>
     <div class="row">
         <div class="col-6">
             <div class="d-grid mx-auto">
-            <a href="/produk/beli" class="btn btn-warning"><h2><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Transaksi</h2></a>
+            <a href="/produk/beli/{{$produk->id}}" class="btn btn-warning"><h2><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Transaksi</h2></a>
             </div>
         </div>
         <div class="col-6">

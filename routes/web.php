@@ -30,12 +30,9 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::get('/', [ProductController::class, 'index']);
 
 /* TENTANG */
-Route::get('/produk', function () {
-    return view('customer.e-commerce.produk');
-});
-Route::get('/produk/detail', function () {
-    return view('customer.e-commerce.detail');
-});
+Route::get('/produk', [ProductController::class, 'ecommerce']);
+Route::get('/produk/{cocok}', [ProductController::class, 'ecommerce_filter'])->name('ecommerce-filter');
+Route::get('/produk/detail/{id}', [ProductController::class, 'ecommerce_detail'])->name('ecommerce-detail');
 /* layanan */
 
 Route::get('/layanan/gantipemilik', [BBNController::class, 'bbnIndex']);
