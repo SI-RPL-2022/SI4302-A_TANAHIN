@@ -23,6 +23,7 @@ class CreateJualtanahsTable extends Migration
             $table->text('deskripsi');
             $table->text('sertifikat');
             $table->text('foto');
+            $table->text('proses')->nullable();
             $table->integer('status')->default(1);
             $table->text('moservicer')->nullable();
             $table->text('relander')->nullable();

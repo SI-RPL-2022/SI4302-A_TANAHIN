@@ -6,7 +6,7 @@ active
 <div class="container">
     <h3  class="mt-5"><a style="color:grey;text-decoration:none;" href="/admin/layanan">Layanan</a> <b style="color:green">/ Penjualan Tanah</b></h3> <br>
     <hr>
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="/admin/layanan/jualtanah/{{$layanan->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row mb-2">
         <div class="col">
@@ -103,11 +103,11 @@ active
                                 <p class="ms-3">Servicer &nbsp;&nbsp;</p>
                             </div>
                             <div class="col-8">
-                                <select class="form-select" name="servicer" aria-label="Default select example">
+                                <select class="form-select" name="moservicer" aria-label="Default select example">
                                     <option selected disabled hidden>Pilih Servicer</option>
-                                    <option value="Bima">Bima</option>
-                                    <option value="Cahyo">Cahyo</option>
-                                    <option value="Edbert">Edbert</option>
+                                    <option <?php if ($layanan->moservicer == "Bima") echo "selected";?> value="Bima">Bima</option>
+                                    <option <?php if ($layanan->moservicer == "Cahyo") echo "selected";?> value="Cahyo">Cahyo</option>
+                                    <option <?php if ($layanan->moservicer == "Edbert") echo "selected";?> value="Edbert">Edbert</option>
                                 </select>
                             </div>
                         </div>
@@ -118,9 +118,9 @@ active
                             <div class="col-8">
                                 <select class="form-select" name="relander" aria-label="Default select example">
                                     <option selected disabled hidden>Pilih Real Lander</option>
-                                    <option value="Bima">Bima</option>
-                                    <option value="Cahyo">Cahyo</option>
-                                    <option value="Edbert">Edbert</option>
+                                    <option <?php if ($layanan->relander == "Bima") echo "selected";?> value="Bima">Bima</option>
+                                    <option <?php if ($layanan->relander == "Cahyo") echo "selected";?> value="Cahyo">Cahyo</option>
+                                    <option <?php if ($layanan->relander == "Edbert") echo "selected";?> value="Edbert">Edbert</option>
                                 </select>
                             </div>
                         </div>
@@ -129,22 +129,27 @@ active
                                 <p class="ms-3">Update Proses &nbsp;&nbsp;</p>
                             </div>
                             <div class="col-8">
-                                <select class="form-select" name="proses" aria-label="Default select example">
+                                <select class="form-select" name="proses" aria-label="Default select example" value="{{ $layanan->proses }}">
                                     <option selected disabled hidden>Pilih Tahapan Proses</option>
-                                    <option value="Penjual Input Tanah">Penjual Input Tanah</option>
-                                    <option value="MoServicer Verifikasi Tanah">Servicer Verifikasi Tanah</option>
-                                    <option value="Real Lander Survey Lokasi">Real Lander Survey Lokasi</option>
-                                    <option value="Tanah Berhasil Dipasarkan">Tanah Berhasil Dipasarkan</option>
-                                    <option value="Negosiasi Penawaran Customer">Negosiasi Penawaran Customer</option>
-                                    <option value="Pembayaran ">Pembayaran </option>
-                                    <option value="Pengiriman Sertifikat">Pengiriman Sertifikat</option>
-                                    <option value="Selesai">Selesai</option>
+                                    <option <?php if ($layanan->proses == "Penjual Input Tanah") echo "selected";?> value="Penjual Input Tanah">Penjual Input Tanah</option>
+                                    <option <?php if ($layanan->proses == "MoServicer Verifikasi Tanah") echo "selected";?> value="MoServicer Verifikasi Tanah">Servicer Verifikasi Tanah</option>
+                                    <option <?php if ($layanan->proses == "Real Lander Survey Lokasi") echo "selected";?> value="Real Lander Survey Lokasi">Real Lander Survey Lokasi</option>
+                                    <option <?php if ($layanan->proses == "Tanah Berhasil Dipasarkan") echo "selected";?> value="Tanah Berhasil Dipasarkan">Tanah Berhasil Dipasarkan</option>
+                                    <option <?php if ($layanan->proses == "Negosiasi Penawaran Customer") echo "selected";?> value="Negosiasi Penawaran Customer">Negosiasi Penawaran Customer</option>
+                                    <option <?php if ($layanan->proses == "Pembayaran") echo "selected";?> value="Pembayaran">Pembayaran </option>
+                                    <option <?php if ($layanan->proses == "Pengiriman Sertifikat") echo "selected";?> value="Pengiriman Sertifikat">Pengiriman Sertifikat</option>
+                                    <option <?php if ($layanan->proses == "Selesai") echo "selected";?> value="Selesai">Selesai</option>
+                                    <option <?php if ($layanan->proses == "Gagal") echo "selected";?> value="Gagal">Gagal</option>
                                   </select>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-4">
                                 <p class="ms-3">Riwayat Proses</p>
+                            </div>
+                            <div class="col-md-8">
+                                <p style="color:#979797">{{$date}}</p>
+                                <h5 style="color:#30A139">{{$layanan->proses}}</h5>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -172,9 +177,8 @@ active
                             <p class="ms-3">Update Photo Evidence &nbsp;&nbsp;</p>
                         </div>
                         <div class="col-8">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="uploadfotoevidence" name="uploadfotoevidence">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            <div class="form-input">
+                                <input type="file" id="uploadfotoevidence" name="uploadfotoevidence" accept=".jpg,.png"/>
                             </div>
                         </div>
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -189,4 +193,5 @@ active
             </div>
         </div>
     </div>
+</form>
 @endsection
