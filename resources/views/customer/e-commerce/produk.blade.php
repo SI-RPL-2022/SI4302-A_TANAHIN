@@ -21,14 +21,14 @@ active
 <div class="Search my-5">
     <div class="row height d-flex justify-content-center align-items-center">
         <div class="col-md-6">
-            <form action="#">
-            <div class="input-group rounded">
-                <input type="text" name="search" style="height=20px;" class="form-control rounded" placeholder="Cari Tanah Disini" aria-label="Search" aria-describedby="search-addon" value="{{request('search')}}"/>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-search"></i></button>
-                </div>
-                </div>
-            </form>
+                <form action="/produk">
+                    <div class="input-group rounded">
+                        <input type="text" name="search" style="height=20px;" class="form-control rounded" placeholder="Cari Product Disini" aria-label="Search" aria-describedby="search-addon" value="{{request('search')}}"/>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                        </div>
+                    </form>
             
         </div>
 

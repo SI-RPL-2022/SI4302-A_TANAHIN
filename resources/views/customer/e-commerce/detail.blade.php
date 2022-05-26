@@ -66,16 +66,58 @@ active
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-4">
             <div class="d-grid mx-auto">
-            <a href="/produk/beli/{{$produk->id}}" class="btn btn-warning"><h2><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Transaksi</h2></a>
-            </div>
+            @auth
+            <button  class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"><h2><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Transaksi</h2></button>
+            @endauth
+            @guest
+            <a href="/login" class="btn btn-secondary"><h2><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Transaksi (Login First)</h2></a>
+            @endguest
+          </div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
+          <div class="d-grid mx-auto">
+              <a href="https://wa.me/082216136564" class="btn btn-warning"><h2><i class="fa fa-comment" aria-hidden="true"></i>&nbsp;Chat</h2></a>
+          </div>
+      </div>
+        <div class="col-4">
             <div class="d-grid mx-auto">
-                <button class="btn btn-warning"><h2><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Maps</h2></button>
+                <a href="https://www.google.com/maps/place/Telkom+University/@-6.9733165,107.6281415,17z/data=!3m1!4b1!4m5!3m4!1s0x2e68e9adf177bf8d:0x437398556f9fa03!8m2!3d-6.9733165!4d107.6303302" class="btn btn-warning"><h2><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Maps</h2></a>
             </div>
         </div>
     </div>
   </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Yakin membeli tanah di {{ $produk->alamat }},Kota {{ $produk->kota }},provinsi{{ $produk->provinsi }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+    <form action="{{ Route("transaksi.store") }}" method="post" enctype="multipart/form">
+      @csrf
+      <div class="modal-body">  
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Masukan luas yang ingin anda beli (m<sup>2</sup>)</label>
+          <b><p>*Maksimum {{ $produk->luas }} m<sup>2</sup></p></b>
+          <input type="hidden" name="product_id" value="{{ $produk->id}}">
+          <input type="hidden" name="id_penjual" value="{{ $produk->user_id}}">
+          <input type="hidden" name="harga" value="{{ $produk->harga}}">
+          <input type="hidden" name="alamat" value="{{ $produk->alamat}},{{ $produk->kota }},{{ $produk->provinsi }}">
+          <input type="hidden" name="foto" value="{{ $produk->foto1}}">
+          <input type="number" name="luas" class="form-control" id="exampleFormControlInput1" min="1" max="{{ $produk->luas }}">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-success">Beli Sekarang</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
 @endsection

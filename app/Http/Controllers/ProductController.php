@@ -9,7 +9,12 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $product = Product::paginate(6);
+        $search = request()->query('search');
+        if ($search) {
+            $product = Product::where('alamat', 'like', '%' . $search . '%')->orWhere('kota', 'like', '%' . $search . '%')->paginate(6);
+        } else {
+            $product = Product::paginate(6);
+        }
         return view('home', compact('product'));
     }
 
@@ -19,7 +24,6 @@ class ProductController extends Controller
         $product = $products->intersect(Product::whereIn('cocok', [$cocok])->get());
         return view('customer.e-commerce.produk2', compact('product', 'cocok'));
     }
-
 
     public function ecommerce()
     {
