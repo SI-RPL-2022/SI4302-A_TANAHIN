@@ -40,8 +40,5 @@ class JualtanahController extends Controller
 
         return view('customer.layanan.jualtanah', compact('info'));
     }
-    public function index(){
-        $jualtanahs = Jualtanah::all();
-        return view('adminHome', compact('jualtanahs'));
-    }
+    
 }

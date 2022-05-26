@@ -14,7 +14,7 @@ active
                     <div class="col">
                         <div class="numbers">
                             <h5 align="center">Transaksi Berhasil</h5>
-                            <p class="text-success" align="center"> <b>45</b></p>
+                            <p class="text-success" align="center"> <b>{{$countBerhasil}}</b></p>
                         </div>
                     </div>
                     </div>
@@ -31,7 +31,7 @@ active
                     <div class="col">
                         <div class="numbers">
                             <h5 align="center">Transaksi Gagal</h5>
-                            <p align="center" class="text-danger"> <b>10</b> </p>
+                            <p align="center" class="text-danger"> <b>{{$countGagal}}</b> </p>
                         </div>
                     </div>
                     </div>
@@ -48,7 +48,7 @@ active
                     <div class="col">
                         <div class="numbers">
                         <h5 align="center">Transaksi Berjalan</h5>
-                        <p align="center" class="text-primary"> <b>75</b> </p>
+                        <p align="center" class="text-primary"> <b>{{$countBerjalan}}</b> </p>
                         </div>
                     </div>
                     </div>
@@ -107,7 +107,16 @@ active
                     </th>
                   </thead>
                   <tbody>
-                    
+                    @foreach($jualtanahs as $key => $jualtanah)
+                    <tr>
+                      <td>{{$key+1}}</td>
+                      <td>{{$jualtanah->id}}</td>
+                      <td>{{$jualtanah->alamat}}</td>
+                      <td>{{$jualtanah->user->name}}</td>
+                      <td>{{$jualtanah->harga}}</td>
+                      <td><a href="#" class="btn btn-success">Detail</a></td>
+                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
