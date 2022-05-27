@@ -17,6 +17,7 @@ class CreateJualtanahsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->integer('kode_transaksi')->unique();
             $table->integer('luas_tanah');
             $table->text('alamat');
             $table->integer('harga');

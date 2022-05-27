@@ -6,7 +6,7 @@ active
 <div class="container">
     <h3  class="mt-5"><a style="color:grey;text-decoration:none;" href="/admin/layanan">Layanan</a> <b style="color:green">/ Penjualan Tanah</b></h3> <br>
     <hr>
-<form action="/admin/layanan/jualtanah/{{$layanan->id}}" method="POST" enctype="multipart/form-data">
+<form action="/admin/layanan/jualtanah/{{$layanan->kode_transaksi}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row mb-2">
         <div class="col">
@@ -147,10 +147,13 @@ active
                             <div class="col-md-4">
                                 <p class="ms-3">Riwayat Proses</p>
                             </div>
+                        @foreach($riwayat as $key)
                             <div class="col-md-8">
-                                <p style="color:#979797">{{$date}}</p>
-                                <h5 style="color:#30A139">{{$layanan->proses}}</h5>
+                                <h5 style="color:#30A139">{{$key->proses}}</h5>
+                                <p style="color:#979797">{{ \Carbon\Carbon::parse($key->created_at)->format('D, j F Y')}}</p>
                             </div>
+                            <div class="col-md-4"></div>
+                        @endforeach
                         </div>
                         <div class="row mb-3">
                             <div class="col-4">
@@ -178,7 +181,7 @@ active
                         </div>
                         <div class="col-8">
                             <div class="form-input">
-                                <input type="file" id="uploadfotoevidence" name="uploadfotoevidence" accept=".jpg,.png"/>
+                                <input type="file" id="foto_evidence" name="foto_evidence" value="{{ $layanan->foto_evidence }}" accept=".jpg,.png"/>
                             </div>
                         </div>
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
