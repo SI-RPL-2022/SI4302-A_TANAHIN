@@ -65,7 +65,7 @@ active
                     <div class="col">
                         <div class="numbers">
                             <h5 align="center">Omset</h5>
-                            <p align="center" class="text-success"> <b>Rp.1.000.000.000</b> </p>
+                            <p align="center" class="text-success"> <b>{{$total_omset[0]}}</b> </p>
                         </div>
                     </div>
                     </div>

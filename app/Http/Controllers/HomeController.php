@@ -41,7 +41,12 @@ class HomeController extends Controller
         $countBerjalan=Jualtanah::where('status',0)->get()->count();
         $countBerhasil=Jualtanah::where('status',1)->get()->count();
         $countGagal=Jualtanah::where('status',2)->get()->count();
-        
-        return view('adminHome', compact('jualtanahs','countBerjalan','countBerhasil','countGagal'));
+        $total_omset = DB::table('jualtanahs')
+                ->selectRaw('sum(harga) as total_omset')
+                ->where('status', '=', 1)
+                ->get();
+        $total_omset = $total_omset->pluck('total_omset');
+        //dd ($total_omset);
+        return view('adminHome', compact('jualtanahs','countBerjalan','countBerhasil','countGagal','total_omset'));
     }
 }
