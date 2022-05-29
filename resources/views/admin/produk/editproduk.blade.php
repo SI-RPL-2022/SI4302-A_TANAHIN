@@ -34,6 +34,10 @@ active
                 <input type="text" name="alamat" class="form-control form-control-lg" id="alamat" value="{{ $produk->alamat }}">
             </div>
             <div class="form-group">
+                <label for="kota"><b>Kota</b></label>
+                <input type="text" name="kota" class="form-control form-control-lg" id="kota" value="{{ $produk->kota }}">
+            </div>
+            <div class="form-group">
                 <label for="harga"><b>Harga/m<sup>2</sup></b></label>
                 <input type="number" name="harga" class="form-control form-control-lg" id="harga" value="{{ $produk->harga }}">
             </div>
