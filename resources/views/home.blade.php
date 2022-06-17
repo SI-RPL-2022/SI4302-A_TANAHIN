@@ -227,6 +227,11 @@ active
                </div>
             @endforeach
             </div>
+            <div class="paginate-container mb-2">
+               <div class="pagination justify-content-center mt-4">
+                   {{$product -> links()}}
+               </div>
+           </div>
             <div class="btn-box">
                <a href="/produk">
                Lihat Semua Tanah

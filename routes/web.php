@@ -25,16 +25,19 @@ use App\Http\Controllers\DashboardController;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [ProductController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 /* PRODUK */
 Route::get('/', [ProductController::class, 'index']);
 
-/* TENTANG */
-Route::get('/produk', function () {
-    return view('customer.produk');
-});
+Route::get('/produk', [ProductController::class, 'ecommerce']);
+Route::get('/produk/{cocok}', [ProductController::class, 'ecommerce_filter'])->name('ecommerce-filter');
+Route::get('/produk/search', [ProductController::class, 'ecommerce_search'])->name('ecommerce_search');
+Route::get('/produk/detail/{id}', [ProductController::class, 'ecommerce_detail'])->name('ecommerce-detail');
 
+/* Beli */
+Route::post('/produk/beli', [TransaksiController::class, 'store'])->name('transaksi.store');
+Route::get('/profil/riwayat', [TransaksiController::class, 'history'])->name('transaksi.riwayat');
 /* layanan */
 
 Route::get('/layanan/gantipemilik', [BBNController::class, 'bbnIndex']);
@@ -58,6 +61,7 @@ Route::get('/profil/pengajuan/bbn/detail/{id}', [RiwayatController::class, 'deta
 Route::get('/profil/pengajuan/jualtanah/detail/{id}', [RiwayatController::class, 'detail2'])->name('pengajuan.detail.jualtanah');
 Route::get('/profil/pengajuan/sertifikat/detail/{id}', [RiwayatController::class, 'detail3'])->name('pengajuan.detail.sertifikat');
 /* transaksi */
+
 
 /* PRODUK */
 
