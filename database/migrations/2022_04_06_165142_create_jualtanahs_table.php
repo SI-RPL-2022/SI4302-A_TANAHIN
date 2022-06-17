@@ -17,15 +17,19 @@ class CreateJualtanahsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->integer('kode_transaksi')->unique();
             $table->integer('luas_tanah');
             $table->text('alamat');
             $table->integer('harga');
             $table->text('deskripsi');
             $table->text('sertifikat');
             $table->text('foto');
+            $table->text('proses')->nullable();
             $table->integer('status')->default(1);
             $table->text('moservicer')->nullable();
             $table->text('relander')->nullable();
+            $table->text('maps')->nullable();
+            $table->text('foto_evidence')->nullable();
             $table->timestamps();
         });
     }
@@ -37,6 +41,6 @@ class CreateJualtanahsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layanans');
+        Schema::dropIfExists('jualtanahs');
     }
 }

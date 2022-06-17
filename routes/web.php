@@ -9,6 +9,7 @@ use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\JualtanahController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -64,5 +65,9 @@ Route::get('/profil/pengajuan/sertifikat/detail/{id}', [RiwayatController::class
 Route::get('/layanan/jualtanah', [JualtanahController::class, 'create_tanah']);
 Route::post('/layanan/jualtanah/store', [JualtanahController::class, 'store_tanah']);
 Route::get('/admin/layanan/jualtanah/{id}', [JualtanahController::class, 'edit_tanah']);
+Route::post('/admin/layanan/jualtanah/{id}', [JualtanahController::class, 'update_tanah']);
 
 /* DASHBOARD TANAH */
+Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+Route::get('/admin/dashboard/tambah', [DashboardController::class, 'add']);
+Route::post('/admin/dashboard/tambah', [DashboardController::class, 'store']);
