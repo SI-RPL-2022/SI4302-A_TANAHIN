@@ -11,6 +11,16 @@ class Product extends Model
     protected $table = 'products';
     protected $guarded = [];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class);
+    }
+    
     public function produk()
     {
         return $this->hasMany(Transaksi::class);
