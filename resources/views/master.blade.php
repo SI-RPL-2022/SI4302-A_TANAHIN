@@ -22,6 +22,7 @@
       <link href="{{ asset('Template/css/style.css') }}" rel="stylesheet" />
       <!-- responsive style -->
       <link href="{{ asset('Template/css/responsive.css') }}" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
      
    </head>
    <body>
