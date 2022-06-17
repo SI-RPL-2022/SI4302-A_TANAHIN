@@ -5,14 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Proses_riwayat extends Model
 {
     use HasFactory;
-    protected $table = 'products';
+    
     protected $guarded = [];
-
-    public function produk()
-    {
-        return $this->hasMany(Transaksi::class);
-    }
 }

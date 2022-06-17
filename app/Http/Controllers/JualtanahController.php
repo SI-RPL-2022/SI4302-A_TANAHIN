@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Jualtanah;
+use App\Models\Proses_riwayat;
 
 class JualtanahController extends Controller
 {
@@ -12,8 +13,11 @@ class JualtanahController extends Controller
     {
         return view('customer.layanan.jualtanah');
     }
+
     public function store_tanah(Request $request)
     {
+        $kode = rand(11111,99999);
+
         $request->validate([
             'uploadfototanah' =>  'required|image|mimes:jpeg,png,jpg,svg',
             'uploadsertifikat' => 'required|image|mimes:jpeg,png,jpg,svg',
@@ -31,7 +35,14 @@ class JualtanahController extends Controller
             'foto' => $uploadfototanahName,
             'user_id' => auth()->user()->id,
             'status' => 0,
+            'kode_transaksi' => $kode,
         ]);
+
+        $riwayat = Proses_riwayat::create([
+            'kode_transaksi' => $kode,
+            'proses' => "Penjual Input Tanah",
+        ]);
+
         if (isset($jualtanah)) {
             $info = "Berhasil";
         } else {
@@ -40,7 +51,6 @@ class JualtanahController extends Controller
 
         return view('customer.layanan.jualtanah', compact('info'));
     }
-    
     public function edit_tanah($id)
     {
         $layanan = Jualtanah::where('kode_transaksi','=',$id)->first();
