@@ -48,4 +48,30 @@ class DashboardController extends Controller
 
         return redirect('/admin/dashboard');
     }
+
+    public function customerindex()
+    {
+        $kategoriTanah = Product::selectRaw('monthname(created_at) as month')
+            ->groupBy('month')
+            ->orderByRaw('min(created_at) asc')
+            ->pluck('month');
+
+        $dataTotalTanah = Product::selectRaw('sum(harga) as total_harga')
+            ->groupBy(DB::raw("monthname(created_at)"))
+            ->orderByRaw('min(created_at) asc')
+            ->pluck('total_harga');
+
+        $dataRataanTanah = Product::selectRaw('avg(harga) as total_harga')
+            ->groupBy(DB::raw("monthname(created_at)"))
+            ->orderByRaw('min(created_at) asc')
+            ->pluck('total_harga');
+
+        $dataTanahPotensial = TanahPotensial::orderBy('harga', 'DESC')->take(5)->get();
+            
+        // $tanah = Product::all();
+        // dd($dataRataanTanah);
+
+        return view('customer.profil.dashboard', ['kategoriTanah' => $kategoriTanah, 'dataTotalTanah' => $dataTotalTanah, 
+                                                'dataRataanTanah' => $dataRataanTanah, 'dataTanahPotensial' => $dataTanahPotensial]);
+    }
 }

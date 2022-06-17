@@ -28,7 +28,7 @@ Auth::routes();
 Route::get('/home', [ProductController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 /* PRODUK */
-Route::get('/', [ProdukController::class, 'index']);
+Route::get('/', [ProductController::class, 'index']);
 
 Route::get('/produk', [ProductController::class, 'ecommerce']);
 Route::get('/produk/{cocok}', [ProductController::class, 'ecommerce_filter'])->name('ecommerce-filter');
@@ -60,16 +60,17 @@ Route::post('/profil/pengajuan/sertifikat/delete', [RiwayatController::class, 'd
 Route::get('/profil/pengajuan/bbn/detail/{id}', [RiwayatController::class, 'detail1'])->name('pengajuan.detail.bbn');
 Route::get('/profil/pengajuan/jualtanah/detail/{id}', [RiwayatController::class, 'detail2'])->name('pengajuan.detail.jualtanah');
 Route::get('/profil/pengajuan/sertifikat/detail/{id}', [RiwayatController::class, 'detail3'])->name('pengajuan.detail.sertifikat');
+Route::get('/profil/dashboard', [DashboardController::class, 'customerindex']);
 /* transaksi */
 
 
 /* PRODUK */
-Route::get('/admin/produk', [ProdukController::class, 'admin']);
-Route::get('/admin/produk/tambah', [ProdukController::class, 'create']);
-Route::post('/admin/produk/store', [ProdukController::class, 'store']);
-Route::get('/admin/produk/edit/{id}', [ProdukController::class, 'edit']);
-Route::post('/admin/produk/update/{id}', [ProdukController::class, 'update']);
-Route::get('/admin/produk/delete/{id}', [ProdukController::class, 'destroy']);
+Route::get('/admin/produk', [ProductController::class, 'admin']);
+Route::get('/admin/produk/tambah', [ProductController::class, 'create']);
+Route::post('/admin/produk/store', [ProductController::class, 'store']);
+Route::get('/admin/produk/edit/{id}', [ProductController::class, 'edit']);
+Route::post('/admin/produk/update/{id}', [ProductController::class, 'update']);
+Route::get('/admin/produk/delete/{id}', [ProductController::class, 'destroy']);
 
 /* LAYANAN */
 Route::get('/layanan/jualtanah', [JualtanahController::class, 'create_tanah']);

@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Produk;
+use App\Models\Product;
 
 
-class ProdukSeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,7 +21,6 @@ class ProdukSeeder extends Seeder
                 'luas' => 1000,
                 'alamat' => 'Jalan Telekomunikasi',
                 'kota' => 'Bandung',
-                'provinsi' => 'Jawa Barat',
                 'harga' => 1000000,
                 'cocok' => 'bisnis',
                 'deskripsi' => 'ini tanah bisnis',
@@ -35,7 +34,6 @@ class ProdukSeeder extends Seeder
                 'luas' => 2000,
                 'alamat' => 'Jalan Telekomunikasi 2',
                 'kota' => 'Bandung',
-                'provinsi' => 'Jawa Barat',
                 'harga' => 1100000,
                 'cocok' => 'pribadi',
                 'deskripsi' => 'ini tanah pribadi',
@@ -49,7 +47,6 @@ class ProdukSeeder extends Seeder
                 'luas' => 1500,
                 'alamat' => 'Jalan Telekomunikasi 3',
                 'kota' => 'Bandung',
-                'provinsi' => 'Jawa Barat',
                 'harga' => 1300000,
                 'cocok' => 'pabrik',
                 'deskripsi' => 'ini tanah pabrik',
@@ -63,7 +60,6 @@ class ProdukSeeder extends Seeder
                 'luas' => 1250,
                 'alamat' => 'Jalan Telekomunikasi 4',
                 'kota' => 'Bandung',
-                'provinsi' => 'Jawa Barat',
                 'harga' => 1650000,
                 'cocok' => 'bisnis',
                 'deskripsi' => 'ini tanah bisnis',
@@ -77,7 +73,6 @@ class ProdukSeeder extends Seeder
                 'luas' => 900,
                 'alamat' => 'Jalan Telekomunikasi 5',
                 'kota' => 'Bandung',
-                'provinsi' => 'Jawa Barat',
                 'harga' => 1750000,
                 'cocok' => 'bisnis',
                 'deskripsi' => 'ini tanah bisnis',
@@ -91,7 +86,6 @@ class ProdukSeeder extends Seeder
                 'luas' => 1600,
                 'alamat' => 'Jalan Telekomunikasi 6',
                 'kota' => 'Bandung',
-                'provinsi' => 'Jawa Barat',
                 'harga' => 1350000,
                 'cocok' => 'bisnis',
                 'deskripsi' => 'ini tanah bisnis',
