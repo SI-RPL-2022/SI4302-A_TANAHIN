@@ -40,5 +40,39 @@ class JualtanahController extends Controller
 
         return view('customer.layanan.jualtanah', compact('info'));
     }
-    
+    public function edit_tanah($id)
+    {
+        $layanan = Jualtanah::where('kode_transaksi','=',$id)->first();
+        $riwayat = Proses_riwayat::where('kode_transaksi','=',$id)->orderBy('created_at', 'asc')->get();
+        return view('admin.layanan.penjualantanah', compact('layanan','riwayat'));
+    }
+
+    public function update_tanah(Request $request, $id)
+    {
+        $layanan = Jualtanah::where('kode_transaksi','=',$id)->first();
+        // dd($request->all());
+        $layanan->proses = $request->proses;
+        $layanan->maps = $request->maps;
+        $layanan->moservicer = $request->moservicer;
+        $layanan->relander = $request->relander;
+        $foto_evidenceName = time() . '.' . $request->foto_evidence->extension();
+        $request->foto_evidence->move(public_path('/Template/images/jualtanah'), $foto_evidenceName);
+        $layanan->foto_evidence = $foto_evidenceName;
+        
+        if ($request->proses) {
+            $riwayat = new Proses_riwayat;
+            $riwayat->kode_transaksi = $id;
+            $riwayat->proses = $request->proses;
+            $riwayat->save();
+
+            if ($request->proses == 'Selesai') {
+                $layanan->status = 1;
+            }else if($request->proses == 'Gagal') {
+                $layanan->status = 2;
+            }
+        }
+        $layanan->save();
+
+        return redirect('/admin/layanan/jualtanah/'.$id);
+    }
 }
