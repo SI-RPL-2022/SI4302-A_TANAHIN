@@ -40,6 +40,7 @@ class JualtanahController extends Controller
 
         return view('customer.layanan.jualtanah', compact('info'));
     }
+    
     public function edit_tanah($id)
     {
         $layanan = Jualtanah::where('kode_transaksi','=',$id)->first();
