@@ -28,7 +28,7 @@ Auth::routes();
 Route::get('/home', [ProductController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 /* PRODUK */
-Route::get('/', [ProductController::class, 'index']);
+Route::get('/', [ProdukController::class, 'index']);
 
 Route::get('/produk', [ProductController::class, 'ecommerce']);
 Route::get('/produk/{cocok}', [ProductController::class, 'ecommerce_filter'])->name('ecommerce-filter');
@@ -64,6 +64,12 @@ Route::get('/profil/pengajuan/sertifikat/detail/{id}', [RiwayatController::class
 
 
 /* PRODUK */
+Route::get('/admin/produk', [ProdukController::class, 'admin']);
+Route::get('/admin/produk/tambah', [ProdukController::class, 'create']);
+Route::post('/admin/produk/store', [ProdukController::class, 'store']);
+Route::get('/admin/produk/edit/{id}', [ProdukController::class, 'edit']);
+Route::post('/admin/produk/update/{id}', [ProdukController::class, 'update']);
+Route::get('/admin/produk/delete/{id}', [ProdukController::class, 'destroy']);
 
 /* LAYANAN */
 Route::get('/layanan/jualtanah', [JualtanahController::class, 'create_tanah']);

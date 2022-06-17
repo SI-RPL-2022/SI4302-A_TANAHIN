@@ -13,14 +13,14 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('produks', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_tanah');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('luas');
             $table->string('alamat');
             $table->string('kota');
-            $table->string('provinsi');
             $table->integer('harga');
             $table->string('cocok');
             $table->string('deskripsi');
