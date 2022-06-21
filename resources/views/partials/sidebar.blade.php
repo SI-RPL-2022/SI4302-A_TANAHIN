@@ -7,7 +7,7 @@
                 </div>
             </a>
         </div>
-        
+
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class= "@yield('home')">
@@ -40,6 +40,13 @@
                     <a href="/admin/dashboard">
                         <i class="fa fa-line-chart"></i>
                         <p>Dashboard Tanah</p>
+                    </a>
+                </li>
+
+                <li class= "@yield('procedure')">
+                    <a href={{ route('procedure') }}>
+                        <i class="fa fa-check"></i>
+                        <p>Procedure</p>
                     </a>
                 </li>
 

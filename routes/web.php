@@ -11,6 +11,8 @@ use App\Http\Controllers\JualtanahController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProcedureController;
+use App\Models\Procedure;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,3 +84,23 @@ Route::post('/admin/layanan/jualtanah/{id}', [JualtanahController::class, 'updat
 Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 Route::get('/admin/dashboard/tambah', [DashboardController::class, 'add']);
 Route::post('/admin/dashboard/tambah', [DashboardController::class, 'store']);
+
+/* Procedure */
+// group admin
+Route::middleware('is_admin')->group(function () {
+    Route::prefix('procedure')->name('procedure')->group(function () {
+        Route::get('/', [ProcedureController::class, 'index'])->name('');
+        Route::get('/create', [ProcedureController::class, 'create'])->name('.create');
+        Route::post('/create', [ProcedureController::class, 'store'])->name('.store');
+        Route::get('/edit/{id}', [ProcedureController::class, 'edit'])->name('.edit');
+        Route::post('/edit/{id}', [ProcedureController::class, 'update'])->name('.update');
+        Route::delete('/destroy/{id}', [ProcedureController::class, 'destroy'])->name('.destroy');
+    });
+});
+
+
+//tentang
+Route::get('/tentang/prosedur', function () {
+    $procedures = Procedure::all();
+    return view('customer.tentang.prosedur', compact('procedures'));
+});
