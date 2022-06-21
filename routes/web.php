@@ -33,6 +33,13 @@ Route::get('/', [ProdukController::class, 'index']);
 Route::get('/produk', function () {
     return view('customer.produk');
 });
+Route::get('/tentang/prosedur', function () {
+    return view('customer.tentang.prosedur');
+});
+Route::get('/tentang/tentangkami', function () {
+    return view('customer.tentang.tentangkami');
+});
+
 
 /* layanan */
 
